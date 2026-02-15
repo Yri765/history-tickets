@@ -10,9 +10,13 @@ export const TicketView: React.FC = () => {
     const [answers, setAnswers] = useState<{ [key: number]: string }>({});
 
     useEffect(() => {
-        // Reset answers when ticket changes
-        setAnswers({});
-    }, [state.activeTicketId]);
+        // Load existing answers if available
+        if (state.activeTicketId && state.history[state.activeTicketId]) {
+            setAnswers(state.history[state.activeTicketId].answers);
+        } else {
+            setAnswers({});
+        }
+    }, [state.activeTicketId, state.history]);
 
     if (!ticket) return <div>Loading...</div>;
 

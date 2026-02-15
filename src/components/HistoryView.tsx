@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
-import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowLeft, ChevronDown, ChevronUp, Edit } from 'lucide-react';
 
 export const HistoryView: React.FC = () => {
     const { state, dispatch } = useGame();
@@ -78,7 +78,28 @@ export const HistoryView: React.FC = () => {
                                             Answered on {new Date(answerRecord.timestamp).toLocaleDateString()}
                                         </div>
                                     </div>
-                                    {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                dispatch({ type: 'START_TICKET', payload: id });
+                                            }}
+                                            style={{
+                                                background: 'none',
+                                                border: 'none',
+                                                cursor: 'pointer',
+                                                color: 'var(--c-ink)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                padding: '0.5rem',
+                                                borderRadius: '50%',
+                                            }}
+                                            title="Edit Ticket"
+                                        >
+                                            <Edit size={18} />
+                                        </button>
+                                        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                                    </div>
                                 </div>
 
                                 {isExpanded && (
