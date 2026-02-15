@@ -1,0 +1,64 @@
+:root {
+  /* Colors */
+  --c-parchment-bg: #f4e4bc;
+  --c-parchment-dark: #e6d3a0;
+  --c-parchment-light: #fdf6e3;
+  
+  --c-ink: #2c241b;
+  --c-ink-light: #5c4e3d;
+  
+  --c-gold: #c5a059;
+  --c-gold-dark: #9e7d3a;
+  
+  --c-red-seal: #8a2c2c;
+  --c-red-seal-hover: #a63e3e;
+
+  /* Typography */
+  --font-serif: 'Crimson Text', 'Georgia', serif;
+  --font-display: 'Cinzel', 'Trajan Pro', serif; /* Optional, fallback to serif */
+
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Shadows usually found on paper */
+  --shadow-paper: 0 2px 4px rgba(44, 36, 27, 0.1), 0 8px 16px rgba(44, 36, 27, 0.05);
+  --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.15);
+  
+  /* Borders */
+  --border-ink: 1px solid var(--c-ink);
+  --border-gold: 2px solid var(--c-gold);
+}
+
+body {
+  background-color: var(--c-ink); /* Outer background */
+  color: var(--c-ink);
+  font-family: var(--font-serif);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  /* subtle texture pattern could go here */
+}
+
+#root {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--c-parchment-bg);
+  min-height: 100vh;
+  box-shadow: var(--shadow-deep);
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: var(--font-serif);
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: var(--c-ink);
+}
